@@ -1,5 +1,5 @@
 CommentBoard::Application.routes.draw do
-  resources :comments
+  resources :comments, :path => '/'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
