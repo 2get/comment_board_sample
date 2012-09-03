@@ -42,6 +42,7 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
+    @comments = Comment.all
 
     respond_to do |format|
       if @comment.save
