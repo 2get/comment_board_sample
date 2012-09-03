@@ -1,27 +1,13 @@
-<h1>Listing comments</h1>
+<h1>Comment Board</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p id="notice"><%= notice %></p>
+<%= render 'comments/form' %>
 
+<h2>Listing comments</h2>
+
+<dl>
 <% @comments.each do |comment| %>
-  <tr>
-    <td><%= comment.name %></td>
-    <td><%= comment.title %></td>
-    <td><%= comment.body %></td>
-    <td><%= link_to 'Show', comment %></td>
-    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <dt><strong><%= comment.title %></strong> by <%= comment.name %> (<%= comment.created_at %>) [<%= link_to 'S', comment %>, <%= link_to 'E', edit_comment_path(comment) %>, <%= link_to 'D', comment, method: :delete, data: { confirm: 'Are you sure?' } %>]</dt>
+  <dd><%= simple_format comment.body %></dd>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Comment', new_comment_path %>
+</dl>
