@@ -7,7 +7,7 @@
 
 <dl>
 <% @comments.each do |comment| %>
-  <dt><strong><%= comment.title %></strong> by <%= comment.name %> (<%= comment.created_at %>) [<%= link_to 'S', comment %>, <%= link_to 'E', edit_comment_path(comment) %>, <%= link_to 'D', comment, method: :delete, data: { confirm: 'Are you sure?' } %>]</dt>
+  <dt><strong><%= comment.title %></strong> by <%= comment.name %> (<%= comment.created_at.to_s(:long_datetime) %>) [<%= link_to 'S', comment %>, <%= link_to 'E', edit_comment_path(comment) %>, <%= link_to 'D', comment, method: :delete, data: { confirm: 'Are you sure?' } %>]</dt>
   <dd><%= simple_format comment.body %></dd>
 <% end %>
 </dl>
